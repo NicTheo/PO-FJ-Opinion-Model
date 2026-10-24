@@ -9,17 +9,29 @@ To enable immediate reproduction without requiring external downloads, two proce
 ## 📂 Repository Structure
 
 ```text
-├── data/
-│   ├── raw/                  # Directory for raw .txt.gz graph files downloaded from SNAP
-│   └── processed/            # Processed .pt sparse adjacency matrices (Wiki & Gnutella included)
+├── data/                     # Graph datasets (Wiki & Gnutella included as .pt and .txt)
 ├── results/                  # Generated figures (.pdf) and experiment logs (.csv)
 ├── src/
-│   ├── core.py               # Core PO-FJ dynamics, moment evolutions, and CLEAR-PGD (Alg. 1)
-│   ├── graph_loader.py       # Extract Largest Strongly Connected Components (LSCC) and save as .pt
-│   ├── rq1.py                # Reproduces RQ1: Behavioral impact heatmaps on Stochastic Block Model
-│   ├── rq2.py                # Reproduces RQ2: Conflict mitigation results of CLEAR-PGD and baselines across budgets
-│   ├── rq3.py                # Reproduces RQ3: Node-level shift analysis with Pearson correlations
-│   ├── rq4.py                # Reproduces RQ4: Scalability and execution runtime scaling results
-│   └── appendix.py           # Reproduces Appendix F: K-hop covariance matrix evaluation
+│   ├── po_fj_dynamics.py     # PO-FJ expected W, moment evolutions, and conflict metrics
+│   ├── clear_optimizer.py    # CLEAR-PGD optimizer with checkpointing and budget projection
+│   ├── baselines.py          # Random, Ideological-Heuristic, and Bridge-Heuristic baselines
+│   ├── graph_utils.py        # Spectral bisection and 90-9-1 user scenario generator
+│   ├── graph_loader.py       # SNAP edgelist processor (LSCC extraction -> .pt export)
+│   ├── run_main.py           # Main benchmark driver executing CLEAR-PGD and baselines
+│   ├── rq1.py                # Reproduces RQ1: Behavioral impact heatmaps on SBM
+│   ├── rq2.py                # Reproduces RQ2: Conflict mitigation plots across budgets
+│   ├── rq3.py                # Reproduces RQ3: Node-level attribution and Pearson correlations
+│   └── rq4.py                # Reproduces RQ4: Scalability runtime benchmark and log-log scaling plot
 ├── requirements.txt          # Python environment dependencies
+├── LICENSE                   # MIT License
 └── README.md
+```
+
+---
+
+## Environment Setup
+
+This codebase was developed and evaluated using Python 3.10+. To set up the environment, install the required packages:
+
+```bash
+pip install -r requirements.txt
