@@ -17,6 +17,7 @@ To enable immediate reproduction without requiring external downloads, two proce
 │   ├── baselines.py          # Random, Ideological-Heuristic, and Bridge-Heuristic baselines
 │   ├── graph_utils.py        # Spectral bisection and 90-9-1 user scenario generator
 │   ├── graph_loader.py       # SNAP edgelist processor (LSCC extraction -> .pt export)
+│   ├── appendix.py           # Reproduces Appendix results of Table 2
 │   ├── run_main.py           # Main benchmark driver executing CLEAR-PGD and baselines
 │   ├── rq1.py                # Reproduces RQ1: Behavioral impact heatmaps on SBM
 │   ├── rq2.py                # Reproduces RQ2: Conflict mitigation plots across budgets
